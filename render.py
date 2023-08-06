@@ -9,17 +9,17 @@ def render(template_path, context): # Define uma função chamada 'render' que r
 def main(): # Define a função principal 'main'.
     if len(sys.argv) != 2: # Verifica se o número de argumentos fornecidos na linha de comando é diferente de 2.
         print("Usage: python3 render.py <template_file>") # Imprime uma mensagem de uso correto do script.
-        sys.exit(1) # Encerra o programa com status de erro (1).
+        sys.exit(1)
 
     template_path = sys.argv[1] # Armazena o caminho para o arquivo de template, que é o segundo argumento fornecido na linha de comando.
 
     if not template_path.endswith('.template'): # Verifica se o arquivo de template não possui a extensão '.template'.
         print("Error: Template file must have a .template extension.") # Imprime uma mensagem de erro informando a extensão correta do arquivo de template.
-        sys.exit(1) # Encerra o programa com status de erro (1).
+        sys.exit(1)
 
     if not os.path.exists(template_path): # Verifica se o arquivo de template não existe.
         print(f"Error: {template_path} does not exist.") # Imprime uma mensagem de erro informando que o arquivo de template não existe.
-        sys.exit(1) # Encerra o programa com status de erro (1).
+        sys.exit(1)
 
     context = {} # Cria um dicionário vazio chamado 'context' para armazenar as informações do arquivo 'settings.py'.
     settings = open("settings.py", 'r').read() # Abre o arquivo 'settings.py' em modo de leitura e lê todo o conteúdo para a variável 'settings'.
@@ -42,4 +42,4 @@ def main(): # Define a função principal 'main'.
     open(output_file, 'w').write(rendered_html) # Abre o arquivo de saída (HTML) em modo de escrita e escreve o conteúdo do template renderizado.
 
 if __name__ == '__main__':
-    main() # Chama a função 'main' quando o script é executado diretamente (não importado como módulo).
+    main()
